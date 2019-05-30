@@ -3,6 +3,7 @@ $(document).ready(function () {
 	let mix = $('.mix-option')[0]
 	let color = $('.color-option')[0]
 	let lenght = $('.lenght-option')[0]
+	$('.modal-subtitle').remove()
 	$('.mix-option').remove()
 	$('.color-option').remove()
 	$('.lenght-option').remove()
@@ -90,6 +91,7 @@ $(document).ready(function () {
 						$('.mix-option').remove()
 						$('.color-option').remove()
 						$('.lenght-option').remove()
+						$('.modal-subtitle').remove()
 					}
 					else{
 						button.dataset.detail = get_option()
@@ -103,6 +105,7 @@ $(document).ready(function () {
 						$('.mix-option').remove()
 						$('.color-option').remove()
 						$('.lenght-option').remove()
+						$('.modal-subtitle').remove()
 					}
 				}
 				else{
@@ -114,9 +117,15 @@ $(document).ready(function () {
 					$('.mix-option').remove()
 					$('.color-option').remove()
 					$('.lenght-option').remove()
+					$('.modal-subtitle').remove()
 				}	
 			}		
 		});
+	});
+	$('.product-block').not('.block-option').on( "click", function() {
+		let subtitle = this.children[2].textContent
+
+  		$('.product-info').prepend('<div class="modal-subtitle">'+subtitle+'</div>')
 	});
 	$('.modal-exit').on( "click", function() {
   		$('.modal-window')[0].style.opacity = '0';
@@ -125,6 +134,7 @@ $(document).ready(function () {
   		$('.dark-window')[0].style.zIndex = '-9999';
   		$('.product-options')[0].style.display = 'none'
   		$('.mix-option').remove()
+  		$('.modal-subtitle').remove()
   		$('.color-option').remove()
   		$('.lenght-option').remove()
   		return false;
@@ -137,6 +147,7 @@ $(document).ready(function () {
   		$('.product-options')[0].style.display = 'none'
   		$('.mix-option').remove()
   		$('.color-option').remove()
+  		$('.modal-subtitle').remove()
   		$('.lenght-option').remove()
 	});
 	
